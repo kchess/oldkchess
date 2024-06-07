@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+    <style type="text/css">	
+        .frac-main {	width: 4em; }
+        .frac-mart {	width: 100%;}
+        .inline-text {display: inline-block;
+                      vertical-align: inherit;}
+        .inline-math {display: inline-block;
+                      vertical-align: middle;}
+        .block-math {display: block;}   
+	    
+	/* .last-line {margin-bottom: 20px;} */
+        
+        html, body {height: 100%;}
+        .wrapper {  display: flex;  flex-direction: column;  height: 100%;}
+        .content {  flex: 1 0 auto;
+                    margin-left: 10%;}
+        .footer {  flex: 0 0 auto;
+                   margin-left: 10%;
+                   margin-bottom: 10%;}         
+        
+        /* structure */   
+        .wrapper{  width: 100%; 
+	               margin: 0 auto;  }
+        .header{   padding:15px 0;   }
+        
+	#banner{ text-align:left; font-size: 2.0em; font-weight: bold;} 
+	 /* #logo {display: inline-block;} */
+        
+        /*MAIN MENU*/
+        .srt-menu{ clear:both;
+	               margin-bottom:60px;}
+	      .srt-menu ul { list-style-type: none; }
+	      .srt-menu li {display: inline;}
+        .srt-menu li a {
+	            color:#666;
+	            background:#dadada;
+	        	margin:1px 0; 
+	            padding:10px;
+	            text-decoration:none;
+	            font-size: 1.5em;}
+        .srt-menu li a:hover{
+	            background:#5ec79e;
+	            color:#fff;}
+              
+	       /*my large link*/
+	 .my-large-link { margin: 20px 20px 20px 0px; }
+	       .my-large-link a {color:#666;
+	            background:#dadada;	        	   
+	            padding: 5px;
+	            text-decoration:none;
+	            font-size: 1.2em;}
+	        .my-large-link a:hover{
+	            background:#5ec79e;
+	            color:#fff;}
+      
+          .my-large-text p {font-size: 1.2em; margin-bottom: 0.1em;}
+	    
+	  /*.my-normal-text p {font-size: 1.0em; margin-bottom: 0.1em;} */
+	    
+	  .my-normal-text h2 {font-family: sans-serif;  }
+	    
+	  .my-normal-text h3 {font-weight: normal; font-style: italic; font-family: sans-serif;  }
+	    
+	 * {margin: 0;  padding: 0;} 
+	
+    </style>
+    <!-- gluing fotter to bottom as given in http://dimox.name/press_footer_bottom_with_css
+         I only added margin-left: 10%;  margin-bottom: 10%; -->
+	<title>Математика в Коктебеле</title>
+</head>
+
+<body>
+	<!-- Yandex.Metrika counter -->
+<script type="text/javascript">
+    (function (d, w, c) {
+        (w[c] = w[c] || []).push(function() {
+            try {
+                w.yaCounter43723864 = new Ya.Metrika({
+                    id:43723864,
+                    clickmap:true,
+                    trackLinks:true,
+                    accurateTrackBounce:true
+                });
+            } catch(e) { }
+        });
+
+        var n = d.getElementsByTagName("script")[0],
+            s = d.createElement("script"),
+            f = function () { n.parentNode.insertBefore(s, n); };
+        s.type = "text/javascript";
+        s.async = true;
+        s.src = "https://mc.yandex.ru/metrika/watch.js";
+
+        if (w.opera == "[object Opera]") {
+            d.addEventListener("DOMContentLoaded", f, false);
+        } else { f(); }
+    })(document, window, "yandex_metrika_callbacks");
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/43723864" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+<!-- /Yandex.Metrika counter -->
+	
+<div class="wrapper">
+<div class="content">
+    <div class="header" id="banner">        
+        <div id="logo"><p><a href="index.html"><img src="images/logo.png" alt="logo" align="middle"></a>&nbsp;&nbsp;Математика. 11 класс</p></div> 
+    </div>
+
+    <div class="my-normal-text">
+    <h2>Подготовка к ЕГЭ</h2>
+    <h3>Пробные варианты</h3> 
+    <ul>
+    	<li>Официальные демоверсии-2017&nbsp;<a href="http://fipi.ru/ege-i-gve-11/demoversii-specifikacii-kodifikatory">fipi.ru/ege-i-gve-11/demoversii-specifikacii-kodifikatory</a></li>
+	<li>ЕГЭ-2017. Математика. Типовые тестовые задания (база)&nbsp;<a href="http://www.alleng.ru/d/math/math1908.htm">www.alleng.ru/d/math/math1908.htm</a></li>
+	<li>ЕГЭ-2017. Математика. Типовые тестовые задания (профиль)&nbsp;<a href="http://www.alleng.ru/d/math/math1920.htm">www.alleng.ru/d/math/math1920.htm</a></li>
+	<li>Разбор решения типового варианта ЕГЭ-2017 (база)&nbsp;<a href="https://yadi.sk/i/2PiyVU7h3G9HDN">yadi.sk/i/2PiyVU7h3G9HDN</a></li>
+    </ul>
+    <h3>Тематические сборники заданий</h3>
+    <ul>
+    	<li>ЕГЭ. 4000 задач с ответами. Математика (база и профиль)&nbsp;<a href="http://www.alleng.ru/d/math/math1687.htm">www.alleng.ru/d/math/math1687.htm</a></li>
+	<li>ЕГЭ. Математика для нелюбителей. Подготовка к ЕГЭ (база)&nbsp;<a href="http://www.alleng.ru/d/math/math1970.htm">www.alleng.ru/d/math/math1970.htm</a></li>
+	<li>ЕГЭ. Математика. Практикум (профиль, задания части С)&nbsp;<a href="http://www.alleng.ru/d/math/math1941.htm">www.alleng.ru/d/math/math1941.htm</a></li>
+	<li>Задачи ЕГЭ по математике. Сборники Яковлева И.В. (профиль, задания части С)&nbsp;<a href="http://mathus.ru/math/#ege">mathus.ru/math/#ege</a></li>
+        <li>Решения избранных задач ЕГЭ-2017 (база)&nbsp;<a href="https://yadi.sk/i/t1KzL5cF3G9Hun">yadi.sk/i/t1KzL5cF3G9Hun</a></li>
+    </ul>
+    <h2>Подготовка к ГВЭ</h2>
+    <h3>Пробные варианты</h3>
+    <ul>
+    	<li>Официальная демоверсия-2017&nbsp;<a href="http://fipi.ru/ege-i-gve-11/gve-11">http://fipi.ru/ege-i-gve-11/gve-11</a></li>
+	<li>Пробные варианты ГВЭ-2017&nbsp;<a href="https://yadi.sk/i/h8NOB1j33Jdne6">https://yadi.sk/i/h8NOB1j33Jdne6</a></li>
+    </ul>
+    <h3>Тематические сборники заданий</h3>
+    <ul>
+    	<li>Тематический сборник ГВЭ-2017 (часть 1, простые задания)&nbsp;<a href="https://yadi.sk/i/lA0AXfzb37ofV3">yadi.sk/i/lA0AXfzb37ofV3</a></li>
+	<li>Тематический сборник ГВЭ-2016&nbsp;<a href="https://yadi.sk/i/c4E3Zgae3G9GRM">yadi.sk/i/c4E3Zgae3G9GRM</a></li>
+    </ul>
+    </div>
+
+    
+
+</div>
+
+<div class="footer">
+    <div class="my-large-link"><a href="index.html">На главную</a></div>
+</div>
+</div>
+
+</body>
+</html>

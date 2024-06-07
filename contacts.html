@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+    <style type="text/css">	
+        .frac-main {	width: 4em; }
+        .frac-mart {	width: 100%;}
+        .inline-text {display: inline-block;
+                      vertical-align: inherit;}
+        .inline-math {display: inline-block;
+                      vertical-align: middle;}
+        .block-math {display: block;}   
+        
+        html, body {height: 100%;}
+        .wrapper {  display: flex;  flex-direction: column;  height: 100%;}
+        .content {  flex: 1 0 auto;
+                    margin-left: 10%;}
+        .footer {  flex: 0 0 auto;
+                   margin-left: 10%;
+                   margin-bottom: 10%;}        
+
+        /* structure */   
+        .wrapper{  width: 100%; 
+	               margin: 0 auto;  }
+        .header{   padding:15px 0;   }
+        #banner{ text-align:left; } 
+
+
+        /*MAIN MENU*/
+        .srt-menu{ clear:both;
+	               margin-bottom:60px;}
+	    .srt-menu ul { list-style-type: none; }
+	    .srt-menu li {display: inline;}
+        .srt-menu li a {
+	            color:#666;
+	            background:#dadada;
+	        	margin:1px 0; 
+	            padding:10px;
+	            text-decoration:none;
+	            font-size: 1.5em;}
+        .srt-menu li a:hover{
+	            background:#5ec79e;
+	            color:#fff;}
+
+	/*my large link*/
+	 .my-large-link { margin: 20px 20px 20px 0px; }
+	       .my-large-link a {color:#666;
+	            background:#dadada;	        	   
+	            padding: 5px;
+	            text-decoration:none;
+	            font-size: 1.2em;}
+	        .my-large-link a:hover{
+	            background:#5ec79e;
+	            color:#fff;}
+      
+        .my-large-text p {font-size: 1.2em; margin-bottom: 0.1em;}
+	    
+	 * {margin: 0;  padding: 0;} 
+	
+    </style>
+    <!-- gluing fotter to bottom as given in http://dimox.name/press_footer_bottom_with_css
+         I only added margin-left: 10%;  margin-bottom: 10%; -->
+	<title>Математика в Коктебеле</title>
+</head>
+
+<body>
+	<!-- Yandex.Metrika counter -->
+<script type="text/javascript">
+    (function (d, w, c) {
+        (w[c] = w[c] || []).push(function() {
+            try {
+                w.yaCounter43723864 = new Ya.Metrika({
+                    id:43723864,
+                    clickmap:true,
+                    trackLinks:true,
+                    accurateTrackBounce:true
+                });
+            } catch(e) { }
+        });
+
+        var n = d.getElementsByTagName("script")[0],
+            s = d.createElement("script"),
+            f = function () { n.parentNode.insertBefore(s, n); };
+        s.type = "text/javascript";
+        s.async = true;
+        s.src = "https://mc.yandex.ru/metrika/watch.js";
+
+        if (w.opera == "[object Opera]") {
+            d.addEventListener("DOMContentLoaded", f, false);
+        } else { f(); }
+    })(document, window, "yandex_metrika_callbacks");
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/43723864" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+<!-- /Yandex.Metrika counter -->
+	
+<div class="wrapper">
+<div class="content">
+    <div class="header" id="banner">        
+        	<div id="logo"><a href="index.html"><img src="images/logo.png" alt="logo"></a></div> 
+    </div>
+
+    <div class="my-large-text">
+    	<p>Куликов Дмитрий Александрович</p>
+    	<p>место работы: МБОУ Коктебельская школа</p>
+    	<p>e-mail: ozhegino@yandex.ru</p>
+    </div>   
+</div>
+
+<div class="footer">
+    <div class="my-large-link"><a href="index.html">На главную</a></div> 
+</div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html>
+<!-- Test 3: input numerators and denominators then check the sum of these fractions. 
+     Also it generates examples with positive fractions whose parts are within 1 and 10.
+     And shows a tip - least common denominator.-->
+<head>
+    <meta charset="utf-8">
+    <style type="text/css">	
+        .frac-main {	width: 4em; }
+        .frac-part {	width: 100%;}
+        .inline-text {display: inline-block;
+                      vertical-align: inherit;}
+        .inline-math {display: inline-block;
+                      vertical-align: middle;}
+        .block-math {display: block;} 
+	/*.last-line {margin-bottom: 20px;}*/
+        	
+        html, body {height: 100%;}
+        .wrapper {  display: flex;  flex-direction: column;  height: 100%;}
+        .content {  flex: 1 0 auto;
+                    margin-left: 10%;}
+        .footer {  flex: 0 0 auto;
+                   margin-left: 10%;
+                   margin-bottom: 10%;} 
+	            
+         /*my large link*/
+	 .my-large-link { margin: 20px 20px 20px 0px; }
+	       .my-large-link a {color:#666;
+	            background:#dadada;	        	   
+	            padding: 5px;
+	            text-decoration:none;
+	            font-size: 1.2em;}
+	        .my-large-link a:hover{
+	            background:#5ec79e;
+	            color:#fff;}   
+	    
+	 * {margin: 0;  padding: 0;}    
+    </style>
+    <!-- gluing fotter to bottom as given in http://dimox.name/press_footer_bottom_with_css
+         I only added margin-left: 10%;  margin-bottom: 10%; -->
+
+	<title>Сложение дробей</title>
+</head>
+<body onload="clearLog();">
+	<!-- Yandex.Metrika counter -->
+<script type="text/javascript">
+    (function (d, w, c) {
+        (w[c] = w[c] || []).push(function() {
+            try {
+                w.yaCounter43723864 = new Ya.Metrika({
+                    id:43723864,
+                    clickmap:true,
+                    trackLinks:true,
+                    accurateTrackBounce:true
+                });
+            } catch(e) { }
+        });
+
+        var n = d.getElementsByTagName("script")[0],
+            s = d.createElement("script"),
+            f = function () { n.parentNode.insertBefore(s, n); };
+        s.type = "text/javascript";
+        s.async = true;
+        s.src = "https://mc.yandex.ru/metrika/watch.js";
+
+        if (w.opera == "[object Opera]") {
+            d.addEventListener("DOMContentLoaded", f, false);
+        } else { f(); }
+    })(document, window, "yandex_metrika_callbacks");
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/43723864" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+<!-- /Yandex.Metrika counter -->
+	
+<div class="wrapper">
+<div class="content">
+	<h1>Сложение дробей</h1>
+    <p>Введи дроби-слагаемые, дробь-сумму и нажми "Проверить".</p>
+    <!--- <p>Кнопка "Cледующий" создаёт условие нового примера.</p>
+    <p>Кнопка "Подсказка" показывает общий знаменатель дробей.</p> -->
+
+    <img src="./images/img1.jpg" height="50%" id="fig">
+
+    <div class="inline-text">
+        <p><textarea rows="10" cols="35" name="text" id="log"></textarea></p>
+    </div>
+</div>
+<div class="footer">
+<form id="fracs" name="fracs" action = "">
+    <div class="block-math">
+       <input type="text" name="notes">
+       <p class="inline-math"> - для заметок </p>
+    </div> 
+
+    <div class="inline-math">
+    <fieldset class="frac-main" id="frac1" name="frac1">
+        <p>
+    	<input class="frac-part" name="numOfFrac1" type="number" value="1">
+        </p>     
+        <p>&mdash;</p>
+        <p>
+    	<input class="frac-part" name="denOfFrac1" type="number" value="4">
+        </p>
+    </fieldset>  
+    </div>
+
+    <div class="inline-math">
+    	<p> 	+      </p>
+    </div>
+
+    <div class="inline-math">
+    <fieldset class="frac-main" id="frac2" name="frac2">
+        <p>
+    	<input class="frac-part" name="numOfFrac2" type="number" value="2">
+        </p>     
+        <p>&mdash;</p>
+        <p>
+    	<input class="frac-part" name="denOfFrac2" type="number" value="4">
+        </p>
+    </fieldset>  
+    </div>
+
+    <div class="inline-math">
+    	<p> 	=      </p>
+    </div>
+
+    <div class="inline-math">
+    <fieldset class="frac-main" id="frac3" name="frac3">
+        <p>
+    	<input class="frac-part" name="numOfFrac3" type="number" value="3">
+        </p>     
+        <p>&mdash;</p>
+        <p>
+    	<input class="frac-part" name="denOfFrac3" type="number" value="4">
+        </p>
+    </fieldset>  
+    </div>
+
+    <div class="block-math">
+        <input type="button" onclick="showValue();" value="Проверить">
+        <input type="button" onclick="generateExample();" value="Следующий">
+        <input type="button" onclick="showTip();" value="Подсказка">
+    </div>
+
+    <!--    <div class="inline-math">
+    	<p id="val_of_frac3"></p>
+    </div> -->  
+
+    <div class="block-math" id="message">
+    	<p></p>
+    </div>
+    
+</form>
+
+<div class="my-large-link"><a href="index.html">На главную</a></div>
+   
+</div>
+</div>
+
+<script type="text/javascript">
+    var form = document.forms.fracs;
+    var num1 = form.elements.frac1.elements.numOfFrac1;
+    var den1 = form.elements.frac1.elements.denOfFrac1;
+    var num2 = form.elements.frac2.elements.numOfFrac2;
+    var den2 = form.elements.frac2.elements.denOfFrac2;
+    var num3 = form.elements.frac3.elements.numOfFrac3;
+    var den3 = form.elements.frac3.elements.denOfFrac3;
+
+    var examples = new Array();
+
+    function getRandomInt(min, max) {
+        return Math.floor(Math.random() * (max - min + 1)) + min;
+    }
+
+    function generateExample() {
+        // generate fractions with numerators <= denominators
+        var qg1 = getRandomInt(2, 10);
+        var pg1 = getRandomInt(1, qg1);
+        var qg2 = getRandomInt(2, 10);
+        var pg2 = getRandomInt(1, qg2);
+
+        document.forms.fracs.elements.frac1.elements.numOfFrac1.value = pg1;
+        document.forms.fracs.elements.frac1.elements.denOfFrac1.value = qg1;
+        document.forms.fracs.elements.frac2.elements.numOfFrac2.value = pg2;
+        document.forms.fracs.elements.frac2.elements.denOfFrac2.value = qg2;
+    }
+
+    function getLeastCommonMultiple(d1, d2) {
+    // m, n - positive integers
+    // let m=min(d1,d2) n = max(d1,d2)
+        if (d1*d2 === 0) {return 0};
+        var m, n, lcm;
+        if (Math.abs(d1) < Math.abs(d2)) {
+            m = Math.abs(d1);
+            n = Math.abs(d2);
+        } else {
+            m = Math.abs(d2);
+            n = Math.abs(d1);
+        };
+
+        if (m === n) {lcm = m} else {lcm = m*n};
+
+        for (var i = 2; i <= m*n; i++) {
+            if ( ((m*n) % i) === 0 ) {
+                var cmTry = m*n/i;
+                if ((cmTry % m === 0) && (cmTry % n === 0)) {lcm = cmTry};
+            };
+        }; 
+        return lcm; 
+    }
+
+    function showTip() {
+        var tipLcm = getLeastCommonMultiple(parseInt(den1.value),parseInt(den2.value));
+        if (tipLcm === 0) {
+            document.getElementById("message").innerText = "Убери 0 из знаменателя"
+        } else {document.getElementById("message").innerText = "Общий знаменатель " + tipLcm};
+    }
+
+    function showValue() {
+    	var t = calculateValue();
+        addLog(t);
+    	if (t === 0) {
+            document.getElementById("message").innerText = "Хорошая работа!";
+            //document.score++;
+    	} else if (t === "Error") {
+    		document.getElementById("message").innerText = "Ошибка: на ноль делить нельзя";  
+            //document.score-=2; 		
+    	} else {
+    		document.getElementById("message").innerText = "Неверно. Попробуй ещё раз";
+            //document.score-=2;
+    	};   
+        //var s = document.score; 	
+        //if (s === 1 || s === 5 || s === 10 || s === 25) {changingImg(s);};
+    }
+
+    function addLog(t) {
+        var comment;
+        if (t===0) {comment = " верно" + "\n"} else {comment = " неверно" + "\n"};
+        // put minuses in parentheses unless they are starting symbols
+        var pt1 = num1.value;
+        var qt1 = (parseInt(den1.value) < 0 ) ? "(" + den1.value + ")" : den1.value;
+        var pt2 = (parseInt(num2.value) < 0 ) ? "(" + num2.value + ")" : num2.value;
+        var qt2 = (parseInt(den2.value) < 0 ) ? "(" + den2.value + ")" : den2.value;
+        var pt3 = num3.value;
+        var qt3 = (parseInt(den3.value) < 0 ) ? "(" + den3.value + ")" : den3.value;
+
+        var textlog = pt1+"/"+qt1+" + "+pt2+"/"+qt2+" = "+pt3+"/"+qt3+comment;
+
+        document.getElementById("log").value += textlog;
+        
+        changeScore(textlog, t);
+        examples.push(textlog);
+    }
+
+    function clearLog() {
+        document.getElementById("log").value = "";
+        document.getElementById("log").readOnly = true;
+        document.getElementById("message").innerText = "Начнём!";
+        document.score = 0;
+    }
+
+    function changeScore(textlog, t) {
+    // t === 0 indicates correct answer 
+        if (t === 0) {
+            if (!isInArray(textlog,examples)) {document.score++};
+        } else {
+            document.score -= 2
+        };
+        var s = document.score;   
+        if (s === 1 || s === 5 || s === 10 || s === 25) {changingImg(s);};
+    }
+
+    function calculateValue() {
+    	var p1 = parseInt(num1.value);
+    	var q1 = parseInt(den1.value);
+    	var p2 = parseInt(num2.value);
+    	var q2 = parseInt(den2.value);
+    	var p3 = parseInt(num3.value);
+    	var q3 = parseInt(den3.value);
+
+    	var result = ((q1*q2*q3) !== 0) ? (p1*q2*q3 + q1*p2*q3 - q1*q2*p3) : "Error";
+    	return result;	
+    }
+
+    function changingImg(s) {
+        var suffix;
+        switch (s) {
+            case 5: suffix = 2
+              break
+            case 10: suffix = 3
+              break
+            case 25: suffix = 4
+              break
+            default: suffix = 1
+        }
+        var fileName = "./images/img" + suffix + ".jpg"; 
+        document.getElementById("fig").src = fileName;
+    }
+
+    function isInArray(val,a) {
+        //returns true for NaN so that erroneous solutions do not count
+        //the way to identify NaN is that it is not equal to itself
+        if (val !== val) {return true};
+        for (var i = 0; i < a.length; i++) {
+            if (val === a[i]) {return true};            
+        };
+        return false;
+    }
+   
+</script>
+
+</body>
+</html>
